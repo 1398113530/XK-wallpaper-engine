@@ -1,0 +1,27 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        applicationId "yyc.xk.core"
+        minSdkVersion 14
+        targetSdkVersion 21
+        versionCode 20180131
+        versionName "1.0.9.2"
+    }
+    buildTypes {
+        release {
+			
+            minifyEnabled true
+            shrinkResources true
+            
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}

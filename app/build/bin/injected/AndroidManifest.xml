@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	package="yyc.xk.core"
+	android:versionCode="20180131"
+	android:versionName="1.0.9.2">
+
+	<uses-sdk
+		android:minSdkVersion="14"
+		android:targetSdkVersion="21"/>
+
+	<application
+		android:label="星空壁纸引擎"
+		android:icon="@drawable/ic_launcher"
+		android:allowBackup="true">
+
+		<activity
+			android:theme="@android:style/Theme.NoDisplay"
+			android:name="yyc.xk.core.seting">
+
+			<intent-filter>
+
+				<action
+					android:name="xk.core"/>
+
+				<category
+					android:name="android.intent.category.DEFAULT"/>
+
+			</intent-filter>
+
+		</activity>
+
+		<activity
+			android:theme="@android:style/Theme.NoDisplay"
+			android:label="设为视频壁纸"
+			android:name="yyc.xk.core.bzsz"
+			android:launchMode="singleTask">
+
+			<intent-filter>
+
+				<action
+					android:name="android.intent.action.VIEW"/>
+
+				<category
+					android:name="android.intent.category.DEFAULT"/>
+
+				<data
+					android:mimeType="video/*"/>
+
+			</intent-filter>
+
+		</activity>
+
+		<service
+			android:name="yyc.xk.core.Wallpaper"
+			android:permission="android.permission.BIND_WALLPAPER"
+			android:process=":WallpaperService">
+
+			<intent-filter>
+
+				<action
+					android:name="android.service.wallpaper.WallpaperService"/>
+
+			</intent-filter>
+
+			<meta-data
+				android:name="android.service.wallpaper"
+				android:resource="@xml/core"/>
+
+		</service>
+
+	</application>
+
+	<uses-permission
+		android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+</manifest>
+
